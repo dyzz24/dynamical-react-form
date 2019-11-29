@@ -40,7 +40,7 @@ export default class Form extends React.Component {
           placeholder: 'Номер',
           validator: { pattern: /^[\d]+$/, maxLength: 15 },
           validatorMessage: 'Только числа, максимум 15 знаков',
-          setStyle: {'height': '40px', 'width': '240px', 'font-size': '18px'}
+          setStyle: {'height': '40px', 'width': '240px', 'fontSize': '18px'}
         }
       ],
       formName: 'Настраиваемая форма',
@@ -70,6 +70,7 @@ export default class Form extends React.Component {
 
     return (
       <React.Fragment>
+    <code>const all = '12'</code>
         <FormItems
           formArray={this.state.formArray}
           formName={this.state.formName}
