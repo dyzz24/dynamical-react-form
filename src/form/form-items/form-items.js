@@ -3,6 +3,7 @@ import './form-items.css';
 import { Error } from './error/error';
 import { Validator } from './validator/validator';
 import { Message } from './message/message';
+import Input from './input/input';
 
 export default class FormItems extends React.Component {
   constructor(props) {
@@ -73,11 +74,7 @@ export default class FormItems extends React.Component {
         <label>{formElem.title}</label>
 
         <Message validatorMessage = {formElem.validatorMessage}/>
-        <input
-          onChange={(e, f) => this.valueChange(e, formElem)}
-          name={formElem.name}
-          className={!formElem.valid ? 'invalid' : ''}
-        ></input>
+        <Input formElem = {formElem} valueChange = {this.valueChange}/>
         <Error valid={formElem.valid} errorText={formElem.errorText}></Error>
       </li>
     ));
