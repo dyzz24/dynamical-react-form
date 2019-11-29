@@ -39,7 +39,8 @@ export default class Form extends React.Component {
           title: 'Номер',
           placeholder: 'Номер',
           validator: { pattern: /^[\d]+$/, maxLength: 15 },
-          validatorMessage: 'Только числа, максимум 15 знаков'
+          validatorMessage: 'Только числа, максимум 15 знаков',
+          setStyle: {'height': '25px', 'width': '240px', 'border': '1px solid #4fcc44'}
         }
       ],
       formName: 'Настраиваемая форма',

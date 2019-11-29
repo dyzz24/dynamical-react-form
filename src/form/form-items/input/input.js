@@ -13,6 +13,7 @@ export default class Input extends React.Component {
 
     return (
       <input
+      style = {this.props.formElem.setStyle}
       onChange={(e, f) => this.valueChange(e, this.props.formElem)}
       name={this.props.formElem.name}
       className={!this.props.formElem.valid ? 'invalid' : ''}
