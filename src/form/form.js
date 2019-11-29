@@ -1,6 +1,7 @@
 import React from 'react';
 import './form.css';
 import FormItems from './form-items/form-items';
+import { example } from './form-items/examplecode';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -23,7 +24,8 @@ export default class Form extends React.Component {
           title: 'Введите логин',
           placeholder: 'Логин',
           validator: { pattern: /^[A-Za-z\d]+$/, maxLength: 10 },
-          validatorMessage: 'Англ. буквы, цифры, максимум 10 символов'
+          validatorMessage: 'Англ. буквы, цифры, максимум 10 символов',
+          setStyle: {'border': '1px dashed gray'}
         },
         {
           name: 'password',
@@ -40,7 +42,7 @@ export default class Form extends React.Component {
           placeholder: 'Номер',
           validator: { pattern: /^[\d]+$/, maxLength: 15 },
           validatorMessage: 'Только числа, максимум 15 знаков',
-          setStyle: {'height': '40px', 'width': '240px', 'fontSize': '18px'}
+          setStyle: {'height': '40px', 'width': '240px', 'fontSize': '18px', 'borderColor': '#f3ecec'}
         }
       ],
       formName: 'Настраиваемая форма',
@@ -68,20 +70,26 @@ export default class Form extends React.Component {
       </li>
     ));
 
+    const text = example;
+
     return (
       <React.Fragment>
-    <code>const all = '12'</code>
+        <div className = 'wrapper'>
+        <div className = 'wrapper__row'>
+        <pre><code>{text}</code></pre>
         <FormItems
           formArray={this.state.formArray}
           formName={this.state.formName}
           parentCallback={this.getFormResult}
           clear={this.clearResult}
         ></FormItems>
+        </div>
         {result.length > 0 ? (
           <div className="formResult">
             <ul>{result}</ul>
           </div>
         ) : null}
+        </div>
       </React.Fragment>
     );
   }
