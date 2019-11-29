@@ -2,6 +2,7 @@ import React from 'react';
 import './form-items.css';
 import { Error } from './error/error';
 import { Validator } from './validator/validator';
+import { Message } from './message/message';
 
 export default class FormItems extends React.Component {
   constructor(props) {
@@ -70,9 +71,8 @@ export default class FormItems extends React.Component {
     const formElems = this.state.formArray.map(formElem => (
       <li key={formElem.name}>
         <label>{formElem.title}</label>
-        {formElem && formElem.validatorMessage ? (
-          <p className="message">{formElem.validatorMessage}</p>
-        ) : null}
+
+        <Message validatorMessage = {formElem.validatorMessage}/>
         <input
           onChange={(e, f) => this.valueChange(e, formElem)}
           name={formElem.name}
