@@ -64,14 +64,18 @@ export default class Form extends React.Component {
     }));
   };
 
-  render() {
-    const result = this.state.formResult.map(formElem => (
+  getAllFormFields = () => {
+    const formArray = this.state.formResult.map(formElem => (
       <li key={formElem.name}>
         <p>{`Имя поля: ${formElem.name}`}</p>
         <p>{`Текст: ${formElem.value}`}</p>
       </li>
     ));
+    return formArray;
+  }
 
+  render() {
+    const result = this.getAllFormFields();
     const text = example;
 
     return (
