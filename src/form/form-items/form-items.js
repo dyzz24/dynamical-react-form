@@ -27,11 +27,11 @@ export default class FormItems extends React.Component {
       const modifierInputsArr = this.state.formArray.map(val => {
         if (val.validator && val.validator.required) {
           val['valid'] = false;
-          val['value'] = '';
+          val['value'] = val.initialValue || '';
           val.errorText = '';
         } else {
           val['valid'] = true;
-          val['value'] = '';
+          val['value'] = val.initialValue || '';
           val.errorText = '';
         }
         return val;

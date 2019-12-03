@@ -5,8 +5,15 @@ export default class Input extends React.Component {
     super();
   }
 
+  inputElement = React.createRef();
+
   valueChange = (e, formElem) => {
       this.props.valueChange(e, formElem);
+  }
+
+  componentDidMount() {
+    this.inputElement.current.value = this.props.formElem.initialValue || '';
+
   }
 
   render() {
@@ -18,6 +25,7 @@ export default class Input extends React.Component {
       onChange={(e, f) => this.valueChange(e, this.props.formElem)}
       name={this.props.formElem.name}
       className={!this.props.formElem.valid ? 'invalid' : ''}
+      ref = {this.inputElement}
     ></input>
     );
   }

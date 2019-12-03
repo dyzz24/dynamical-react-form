@@ -25,7 +25,8 @@ export default class Form extends React.Component {
           placeholder: 'Логин',
           validator: { pattern: /^[A-Za-z\d]+$/, maxLength: 10 },
           validatorMessage: 'Англ. буквы, цифры, максимум 10 символов',
-          setStyle: {'border': '1px dashed gray'}
+          setStyle: {'border': '1px dashed gray'},
+          initialValue: 'login123'
         },
         {
           name: 'password',
@@ -42,7 +43,8 @@ export default class Form extends React.Component {
           placeholder: 'Номер',
           validator: { pattern: /^[\d]+$/, maxLength: 15 },
           validatorMessage: 'Только числа, максимум 15 знаков',
-          setStyle: {'height': '40px', 'width': '240px', 'fontSize': '18px', 'borderColor': '#f3ecec'}
+          setStyle: {'height': '40px', 'width': '240px', 'fontSize': '18px', 'borderColor': '#f3ecec'},
+          initialValue: 144
         }
       ],
       formName: 'Настраиваемая форма',
